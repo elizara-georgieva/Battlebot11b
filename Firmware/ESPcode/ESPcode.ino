@@ -23,7 +23,7 @@ void loop() {
           char c = client.read();
           Serial.write(c);
         }
-        delay(1000);
+        delay(500);
       }
    }
    client.stop();
