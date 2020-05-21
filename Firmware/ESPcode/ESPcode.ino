@@ -19,7 +19,7 @@ void loop() {
 
    if (client) {
       while(client.connected()) {
-        while(client.available()>0) {
+        while(client.available() > 0) {
           char c = client.read();
           Serial.write(c);
         }
