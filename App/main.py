@@ -14,17 +14,17 @@ array = []
 # create TCP socket
 # connect it to default IP, whick is 192.168.4.1
 # when ESP is used like softAP on port 9999
-#sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#host = '192.168.4.1'
-#port = 9999
-#sock.connect((host, port))
-
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = '192.168.4.1'
+port = 9999
+sock.connect((host, port))
+print('Now you are connected')
 while LOOP:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            sock.close()
             pygame.quit()
             sys.exit()
-#            sock.close()
             LOOP = False
 
         if event.type == pygame.KEYDOWN:
@@ -36,11 +36,6 @@ while LOOP:
                 array.append(3)
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 array.append(4)
-            #if event.key == ord('q'):
-            #    pygame.quit()
-                #sys.exit()
-           #     LOOP = False
-#                sys.exit()
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_UP or event.key == ord('w'):
@@ -52,9 +47,9 @@ while LOOP:
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 array.remove(4)
             if event.key == ord('q'):
+                sock.close()
                 pygame.quit()
                 sys.exit()
                 LOOP = False
     pygame.time.wait(150)
-    print(convert_list(array))
-#    sock.send(convert_list(array))
+    sock.send(convert_list(array))
