@@ -6,7 +6,7 @@ import pygame
 from manage_input import convert_list
 
 pygame.init()
-flag = True
+LOOP = True
 
 screen = pygame.display.set_mode((800, 600))
 array = []
@@ -18,14 +18,14 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '192.168.4.1'
 port = 9999
 sock.connect((host, port))
-
-while flag:
+print('Now you are connected')
+while LOOP:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            sock.close()
             pygame.quit()
             sys.exit()
-            sock.close()
-            flag = False
+            LOOP = False
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP or event.key == ord('w'):
@@ -47,8 +47,9 @@ while flag:
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 array.remove(4)
             if event.key == ord('q'):
+                sock.close()
                 pygame.quit()
                 sys.exit()
-                main = False
-    pygame.time.wait(250)
+                LOOP = False
+    pygame.time.wait(150)
     sock.send(convert_list(array))
