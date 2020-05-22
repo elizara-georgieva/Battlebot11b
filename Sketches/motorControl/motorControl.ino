@@ -8,6 +8,7 @@ const int MAX_SPEED = 255;
 const int AVERAGE_SPEED = 122;
 
 char message = 0;
+int count = 0;
 
 void moveForward();
 void moveLeft();
@@ -17,6 +18,7 @@ void moveForwardLeft();
 void moveForwardRight();
 void moveBackLeft();
 void moveBackRight();
+void Stop();
 
 void setup() {
   pinMode(motorA, OUTPUT);
@@ -29,7 +31,9 @@ void setup() {
 }
 
 void loop() {
-  message = Serial.read();
+  if(Serial.available()) {
+    message = Serial.read();
+  }   
 
   switch(message){
     case'1':
@@ -56,8 +60,16 @@ void loop() {
     case'8':
       moveBackRight();
       break;
-   }
-  delay(500);
+    case '0':
+      count++;
+      break;
+  }
+
+  if(count == 10) {
+    Stop();
+    count = 0;
+  }
+  delay(150);
 }
 
 void moveForward(){
@@ -130,4 +142,13 @@ void moveBackRight(){
   analogWrite(motorB, MAX_SPEED);
   digitalWrite(dirB1, LOW);
   digitalWrite(dirB2, HIGH);
+}
+
+void Stop() {
+  analogWrite(motorA, 0);
+  analogWrite(motorB, 0);
+  digitalWrite(dirA1, LOW);
+  digitalWrite(dirA2, LOW);
+  digitalWrite(dirB1, LOW);
+  digitalWrite(dirB2, LOW);
 }

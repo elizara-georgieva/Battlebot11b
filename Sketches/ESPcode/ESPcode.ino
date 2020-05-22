@@ -4,27 +4,27 @@ const char*  ssid = "golqmataMama";
 const char* psw = "123456789";
 
 // create servet at port 9999
-WiFiServer server(9999);
+WiFiServer ESPserver(9999);
 
 void setup() {
   Serial.begin(115200);
   delay(1000);
   while(!WiFi.softAP(ssid, psw));
   delay(1000);
-  server.begin();
+  ESPserver.begin();
 }
 
 void loop() {
-   WiFiClient client = server.available();
+   WiFiClient ESPclient = ESPserver.available();
 
-   if (client) {
-      while(client.connected()) {
-        while(client.available() > 0) {
-          char c = client.read();
+   if (ESPclient) {
+      while(ESPclient.connected()) {
+        while(ESPclient.available() > 0) {
+          char c = ESPclient.read();
           Serial.write(c);
         }
-        delay(500);
+        delay(150);
       }
    }
-   client.stop();
+   ESPclient.stop();
 }
