@@ -4,8 +4,8 @@
 #define motorB 10
 #define dirB1 6
 #define dirB2 5
-const int MAX_SPEED = 255;
-const int AVERAGE_SPEED = 122;
+const int MAX_SPEED = 155;
+const int AVERAGE_SPEED = 75;
 
 char message = 0;
 int count = 0;
@@ -65,7 +65,7 @@ void loop() {
       break;
   }
 
-  if(count == 10) {
+  if(count == 3) {
     Stop();
     count = 0;
   }
