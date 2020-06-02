@@ -65,8 +65,6 @@ F 3 "" H 6200 1450 50  0001 C CNN
 $EndComp
 Connection ~ 2650 1800
 Wire Wire Line
-	2650 1800 4250 1800
-Wire Wire Line
 	5800 1800 5800 1750
 $Comp
 L pspice:0 #GND?
@@ -383,18 +381,7 @@ Wire Wire Line
 Wire Wire Line
 	6100 3100 4000 3100
 Wire Wire Line
-	7850 650  4250 650 
-Wire Wire Line
-	4250 650  4250 1800
-Connection ~ 4250 1800
-Wire Wire Line
-	4250 1800 5800 1800
-Wire Wire Line
 	4000 3900 7300 3900
-Wire Wire Line
-	7300 3900 7300 2250
-Wire Wire Line
-	7300 2250 7850 2250
 Connection ~ 7850 2250
 Wire Wire Line
 	8950 1450 10550 1450
@@ -404,8 +391,6 @@ Wire Wire Line
 	6000 2100 3000 2100
 Wire Wire Line
 	3000 2100 3000 2400
-Wire Wire Line
-	7850 650  7850 1950
 $Comp
 L pspice:0 #GND?
 U 1 1 5EC82388
@@ -469,4 +454,10 @@ F 3 "~" H 10550 2500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10550 2350 10550 2300
+Wire Wire Line
+	2650 1800 5800 1800
+Wire Wire Line
+	7300 1950 7850 1950
+Wire Wire Line
+	7300 1950 7300 3900
 $EndSCHEMATC
