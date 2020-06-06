@@ -65,8 +65,6 @@ F 3 "" H 6200 1450 50  0001 C CNN
 $EndComp
 Connection ~ 2650 1800
 Wire Wire Line
-	2650 1800 4250 1800
-Wire Wire Line
 	5800 1800 5800 1750
 $Comp
 L pspice:0 #GND?
@@ -244,21 +242,6 @@ Wire Wire Line
 	9850 4100 9850 4000
 Connection ~ 9850 4000
 Wire Wire Line
-	9500 4000 9550 4000
-Wire Wire Line
-	9500 3500 9500 4000
-$Comp
-L power:+9V #PWR?
-U 1 1 5E232A4E
-P 9500 3500
-F 0 "#PWR?" H 9500 3350 50  0001 C CNN
-F 1 "+9V" H 9515 3673 50  0000 C CNN
-F 2 "" H 9500 3500 50  0001 C CNN
-F 3 "" H 9500 3500 50  0001 C CNN
-	1    9500 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	10150 4650 10150 4550
 $Comp
 L pspice:0 #GND?
@@ -383,18 +366,7 @@ Wire Wire Line
 Wire Wire Line
 	6100 3100 4000 3100
 Wire Wire Line
-	7850 650  4250 650 
-Wire Wire Line
-	4250 650  4250 1800
-Connection ~ 4250 1800
-Wire Wire Line
-	4250 1800 5800 1800
-Wire Wire Line
 	4000 3900 7300 3900
-Wire Wire Line
-	7300 3900 7300 2250
-Wire Wire Line
-	7300 2250 7850 2250
 Connection ~ 7850 2250
 Wire Wire Line
 	8950 1450 10550 1450
@@ -404,8 +376,6 @@ Wire Wire Line
 	6000 2100 3000 2100
 Wire Wire Line
 	3000 2100 3000 2400
-Wire Wire Line
-	7850 650  7850 1950
 $Comp
 L pspice:0 #GND?
 U 1 1 5EC82388
@@ -469,4 +439,57 @@ F 3 "~" H 10550 2500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10550 2350 10550 2300
+Wire Wire Line
+	2650 1800 5800 1800
+Wire Wire Line
+	7300 1950 7850 1950
+Wire Wire Line
+	7300 1950 7300 3900
+$Comp
+L Device:D_Bridge_+-AA D?
+U 1 1 5EDAFCCD
+P 8600 3800
+F 0 "D?" H 8944 3846 50  0000 L CNN
+F 1 "D_Bridge_+-AA" H 8944 3755 50  0000 L CNN
+F 2 "" H 8600 3800 50  0001 C CNN
+F 3 "~" H 8600 3800 50  0001 C CNN
+	1    8600 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 3800 8900 4000
+Wire Wire Line
+	8300 3800 8300 4750
+Wire Wire Line
+	8300 4750 9550 4750
+$Comp
+L pspice:0 #GND?
+U 1 1 5EDB9C3D
+P 8600 4300
+F 0 "#GND?" H 8600 4200 50  0001 C CNN
+F 1 "0" H 8600 4389 50  0000 C CNN
+F 2 "" H 8600 4300 50  0001 C CNN
+F 3 "~" H 8600 4300 50  0001 C CNN
+	1    8600 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 4100 8600 4300
+Wire Wire Line
+	9500 4000 9550 4000
+Wire Wire Line
+	8900 4000 9550 4000
+$Comp
+L power:+12V #PWR?
+U 1 1 5EDBC58C
+P 8600 3350
+F 0 "#PWR?" H 8600 3200 50  0001 C CNN
+F 1 "+12V" H 8615 3523 50  0000 C CNN
+F 2 "" H 8600 3350 50  0001 C CNN
+F 3 "" H 8600 3350 50  0001 C CNN
+	1    8600 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 3350 8600 3500
 $EndSCHEMATC
