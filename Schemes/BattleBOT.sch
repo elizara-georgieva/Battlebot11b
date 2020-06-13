@@ -131,8 +131,6 @@ $EndComp
 Wire Wire Line
 	4250 5450 1950 5450
 Wire Wire Line
-	1950 5450 1950 1800
-Wire Wire Line
 	1950 1800 2650 1800
 $Comp
 L pspice:0 #GND?
@@ -460,8 +458,6 @@ Wire Wire Line
 	8900 3800 8900 4000
 Wire Wire Line
 	8300 3800 8300 4750
-Wire Wire Line
-	8300 4750 9550 4750
 $Comp
 L pspice:0 #GND?
 U 1 1 5EDB9C3D
@@ -480,17 +476,6 @@ Wire Wire Line
 Wire Wire Line
 	8900 4000 9550 4000
 $Comp
-L power:+12V #PWR?
-U 1 1 5EDBC58C
-P 7950 3250
-F 0 "#PWR?" H 7950 3100 50  0001 C CNN
-F 1 "+12V" H 7965 3423 50  0000 C CNN
-F 2 "" H 7950 3250 50  0001 C CNN
-F 3 "" H 7950 3250 50  0001 C CNN
-	1    7950 3250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Switch:SW_SPST SW?
 U 1 1 5EDC0010
 P 2450 1600
@@ -501,27 +486,23 @@ F 3 "~" H 2450 1600 50  0001 C CNN
 	1    2450 1600
 	1    0    0    -1  
 $EndComp
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 5EDC0940
-P 8250 3300
-F 0 "SW?" H 8250 3535 50  0000 C CNN
-F 1 "SW_SPST" H 8250 3444 50  0000 C CNN
-F 2 "" H 8250 3300 50  0001 C CNN
-F 3 "~" H 8250 3300 50  0001 C CNN
-	1    8250 3300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8450 3300 8600 3300
 Wire Wire Line
 	8600 3300 8600 3500
-Wire Wire Line
-	7950 3250 7950 3300
-Wire Wire Line
-	7950 3300 8050 3300
 Wire Wire Line
 	2000 1550 2000 1600
 Wire Wire Line
 	2000 1600 2250 1600
+Wire Wire Line
+	8300 4750 9550 4750
+Wire Wire Line
+	8600 3300 7800 3300
+Wire Wire Line
+	7800 3300 7800 6200
+Wire Wire Line
+	7800 6200 1950 6200
+Wire Wire Line
+	1950 1800 1950 5450
+Connection ~ 1950 5450
+Wire Wire Line
+	1950 5450 1950 6200
 $EndSCHEMATC
